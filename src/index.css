@@ -27,7 +27,7 @@ body,
 #root {
     height: 100%;
     width: 100%;
-    background-color: var(--menu-color);
+    background-color: var(--color-1);
     position: fixed;
     background-position: top right;
     background-size: 510px auto;
@@ -40,6 +40,9 @@ body,
     overscroll-behavior: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: white;
+    -webkit-user-select: none;
+    user-select: none;
 
     /* for dev checking */
     /*--safe-area-inset-bottom: 32px;*/

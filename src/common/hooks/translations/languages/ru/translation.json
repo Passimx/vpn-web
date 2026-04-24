@@ -1,4 +1,7 @@
 {
     "language": "Язык",
-    "language_native": "🇷🇺 Русский"
+    "language_native": "Русский",
+    "language_native_flag": "🇷🇺",
+    "copied": "Скопировано",
+    "back": "Назад"
 }

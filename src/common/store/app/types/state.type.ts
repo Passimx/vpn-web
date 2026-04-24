@@ -1,3 +1,5 @@
+import { JSX } from 'react';
+
 export type SettingsType = {
     lang?: string;
 };
@@ -7,6 +9,8 @@ export type StateType = {
     isPhone?: boolean;
     isStandalone: boolean;
     isIos?: boolean;
-    isActiveTab?: boolean;
     settings?: SettingsType;
+
+    isActiveTab?: boolean;
+    page?: JSX.Element;
 };

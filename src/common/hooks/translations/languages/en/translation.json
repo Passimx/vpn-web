@@ -1,4 +1,7 @@
 {
     "language": "Language",
-    "language_native": "🇺🇲 English"
+    "language_native": "English",
+    "language_native_flag": "🇺🇲",
+    "copied": "Copied",
+    "back": "Back"
 }

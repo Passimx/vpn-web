@@ -1,0 +1,36 @@
+html{
+    --color-1: #020d17;
+    --color-2: #062846;
+    --color-3: #08365e;
+    --color-4: #0a4375;
+    --color-5: #0098ea;
+    --padding: 8px
+}
+
+.background{
+    width: 100%;
+    height: calc(100% - var(--padding) * 2);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+
+    @media(width >= 600px){
+        grid-template-columns: 400px;
+        border-radius: 10px;
+        padding: var(--padding);
+    }
+
+    .background_2{
+        background-color: var(--color-2);
+        height: 100%;
+        width: 100%;
+
+        @media(width >= 600px){
+            overflow: hidden;
+            border-radius: 25px;
+        }
+
+    }
+}

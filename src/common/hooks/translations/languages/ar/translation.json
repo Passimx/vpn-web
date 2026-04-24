@@ -1,4 +1,7 @@
 {
     "language": "لغة",
-    "language_native": "🇸🇦 العربية"
+    "language_native": "العربية",
+    "language_native_flag": "🇸🇦",
+    "copied": "تم النسخ",
+    "back": "رجوع"
 }

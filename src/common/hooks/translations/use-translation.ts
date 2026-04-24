@@ -33,21 +33,26 @@ export const useTranslation = () => {
     const { settings } = useAppSelector((state) => state.app);
 
     useEffect(() => {
-        if (!settings) return;
         const elements = document.querySelectorAll<HTMLDivElement>('.text_translate');
         elements.forEach((el) => {
             el.style.animation = 'none';
             el.style.filter = 'blur(4px)';
         });
 
-        if (settings.lang === 'zh') moment.locale('zh-cn');
-        else moment.locale(settings.lang);
+        let lang = settings?.lang || 'zh';
+
+        if (['uk', 'uz', 'kz'].includes(lang)) lang = 'ru'; // uz, uk, kz -> ru
+        lang = lang?.toLowerCase().split('-')[0]; // zh-hans -> zh
+        if (!(lang in resources)) lang = 'en';
+
+        if (lang === 'zh') moment.locale('zh-cn');
+        else moment.locale(lang);
 
         i18n.use(initReactI18next)
             .init({
                 resources,
-                lng: settings.lang,
-                fallbackLng: settings.lang,
+                lng: lang,
+                fallbackLng: lang,
                 interpolation: {
                     escapeValue: false,
                 },

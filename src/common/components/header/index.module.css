@@ -1,0 +1,31 @@
+.background{
+    background-color: var(--color-4);
+    padding: 8px;
+    display: grid;
+    justify-content: right;
+    grid-template-columns: auto;
+
+    .background_2{
+        background-color: var(--color-5);
+        padding: 8px;
+        gap: 4px;
+        display: grid;
+        grid-template-columns: auto auto;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 16px;
+
+        .flag{
+            border-radius: 16px;
+            background-color: red;
+            font-size: 40px;
+            overflow: hidden;
+            width: 20px;
+            height: 20px;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            transform: rotate(5deg);
+        }
+    }
+}

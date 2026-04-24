@@ -1,4 +1,7 @@
 {
     "language": "语言",
-    "language_native": "🇨🇳 中文"
+    "language_native": "中文",
+    "language_native_flag": "🇨🇳",
+    "copied": "已复制",
+    "back": "返回"
 }

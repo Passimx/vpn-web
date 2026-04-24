@@ -1,4 +1,7 @@
 {
     "language": "Idioma",
-    "language_native": "🇪🇸 Español"
+    "language_native": "Español",
+    "language_native_flag": "🇪🇸",
+    "copied": "Copiado",
+    "back": "Atrás"
 }
