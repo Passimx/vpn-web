@@ -80,3 +80,12 @@ body,
     font-size: 15px !important;
     color: white !important;
 }
+
+html{
+    --color-1: #020d17;
+    --color-2: #062846;
+    --color-3: #08365e;
+    --color-4: #0a4375;
+    --color-5: #0098ea;
+    --padding: 8px
+}

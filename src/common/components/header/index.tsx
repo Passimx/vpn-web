@@ -9,7 +9,7 @@ export const Header: FC = () => {
     const { t } = useTranslation();
 
     const onClickLang = () => {
-        setStateApp({ page: <Languages /> });
+        setStateApp({ foreground: <Languages /> });
     };
 
     return (

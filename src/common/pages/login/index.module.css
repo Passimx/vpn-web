@@ -1,0 +1,30 @@
+.background1{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+
+    .background3{
+        display: grid;
+        grid-template-columns: auto;
+        justify-content: center;
+        gap: 8px;
+
+        .background31{
+            background-color: var(--color-5);
+            padding: 8px;
+            gap: 4px;
+            display: grid;
+            grid-template-columns: auto auto;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 16px;
+        }
+
+        .background31:hover{
+            opacity: 0.7;
+        }
+    }
+}

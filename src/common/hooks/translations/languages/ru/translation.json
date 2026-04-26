@@ -3,5 +3,11 @@
     "language_native": "Русский",
     "language_native_flag": "🇷🇺",
     "copied": "Скопировано",
-    "back": "Назад"
+    "back": "Назад",
+    "login_to_PassimX": "Вход PassimX",
+    "login_by_telegram": "Войти через телеграм",
+    "login_by_passimx": "Войти в аккаунт PassimX",
+    "create_by_passimx": "Создать новый аккаунт",
+    "creation_account": "Создание аккаунта",
+    "telegram_login": "Вход через телеграм"
 }

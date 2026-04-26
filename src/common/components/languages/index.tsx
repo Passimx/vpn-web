@@ -19,7 +19,7 @@ export const Languages: FC = () => {
                     className={`${styles.language_item} ${lang === language && styles.language_item_active}`}
                     onClick={() => postMessageToBroadCastChannel({ event: EventsEnum.CHANGE_LANGUAGE, data: language })}
                 >
-                    {t('language_native', { lng: language })}
+                    {t('language_native_flag', { lng: language })} {t('language_native', { lng: language })}
                     <div
                         className={`${styles.language_item_round} ${lang === language && styles.language_item_round_active}`}
                     >

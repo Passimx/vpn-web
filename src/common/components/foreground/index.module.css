@@ -14,7 +14,7 @@
     cursor: pointer;
     flex-direction: column;
 
-    .page{
+    .foreground{
         cursor: auto;
         padding: 4px;
         display: grid;

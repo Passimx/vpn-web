@@ -1,0 +1,21 @@
+.background{
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+    grid-template-rows: 1fr auto;
+
+    .background2{
+        display: grid;
+        justify-items: center;
+        padding: 4px;
+
+        .background3{
+            font-weight: 600;
+            background-color: var(--color-5);
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+    }
+}

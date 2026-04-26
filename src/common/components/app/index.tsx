@@ -9,8 +9,9 @@ import { ChildrenPropsType } from '../../types/props/children-props.type.ts';
 import { Header } from '../header';
 import { TopElements } from '../top-elements';
 import { useBroadcastChannel } from '../../hooks/use-broadcast-channel.ts';
+import { Pages } from '../pages';
 
-export const App: FC<ChildrenPropsType> = ({ children }) => {
+export const App: FC<ChildrenPropsType> = () => {
     useIsIos();
     useIsPhone();
     useSettings();
@@ -24,7 +25,9 @@ export const App: FC<ChildrenPropsType> = ({ children }) => {
             <TopElements />
             <div className={styles.background_2}>
                 <Header />
-                <Auth>{children}</Auth>
+                <Auth>
+                    <Pages />
+                </Auth>
             </div>
         </div>
     );

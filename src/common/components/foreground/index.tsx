@@ -7,15 +7,15 @@ import styles from './index.module.css';
 export const Foreground: FC = () => {
     const { setStateApp } = useAppAction();
     const [ref, isVisible, setIsVisible] = useClickOutside();
-    const page = useAppSelector((state) => state.app.page);
+    const foreground = useAppSelector((state) => state.app.foreground);
 
     const handleKeyDown = (e: KeyboardEvent) => {
-        if (e.key === 'Escape') setStateApp({ page: undefined });
+        if (e.key === 'Escape') setStateApp({ foreground: undefined });
     };
 
     useEffect(() => {
-        setIsVisible(!!page);
-    }, [page]);
+        setIsVisible(!!foreground);
+    }, [foreground]);
 
     useEffect(() => {
         if (isVisible) {
@@ -23,19 +23,19 @@ export const Foreground: FC = () => {
         }
 
         if (!isVisible) {
-            setStateApp({ page: undefined });
+            setStateApp({ foreground: undefined });
             window.removeEventListener('keydown', handleKeyDown);
         }
     }, [isVisible]);
 
-    if (page)
+    if (foreground)
         return (
             <div className={styles.background}>
                 <div className={styles.cancel_background}>
                     <MdOutlineClose className={styles.cancel_button} />
                 </div>
-                <div ref={ref} className={styles.page}>
-                    {page}
+                <div ref={ref} className={styles.foreground}>
+                    {foreground}
                 </div>
             </div>
         );

@@ -4,6 +4,10 @@ export type SettingsType = {
     lang?: string;
 };
 
+export enum TabEnum {
+    MAIN = 'main',
+}
+
 export type StateType = {
     isOnline: boolean;
     isPhone?: boolean;
@@ -12,5 +16,8 @@ export type StateType = {
     settings?: SettingsType;
 
     isActiveTab?: boolean;
-    page?: JSX.Element;
+    foreground?: JSX.Element;
+
+    activeTab: TabEnum;
+    pages: Map<TabEnum, JSX.Element[]>;
 };
