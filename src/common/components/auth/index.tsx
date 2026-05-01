@@ -9,7 +9,7 @@ export const Auth: FC<ChildrenPropsType> = ({ children }) => {
     const setPage = useSetPage();
 
     useEffect(() => {
-        if (!user) setPage(<LoginPage />);
+        if (!user.userId) setPage(<LoginPage />);
     }, [user]);
 
     return children;

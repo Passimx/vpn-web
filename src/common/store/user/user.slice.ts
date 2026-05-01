@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { StateType } from './types/state.type.ts';
 
-const initialState: StateType | null = null;
+const initialState: Partial<StateType> = {};
 
 const UserSlice = createSlice({
     name: 'user',

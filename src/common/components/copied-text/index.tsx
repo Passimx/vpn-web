@@ -11,7 +11,7 @@ export const CopiedText: FC = memo(() => {
     const { t } = useTranslation();
 
     useEffect(() => {
-        let scrollTimeout: number;
+        let scrollTimeout: any;
         const channel = new BroadcastChannel('ws-channel');
 
         channel.onmessage = ({ data }: MessageEvent<EventsType>) => {

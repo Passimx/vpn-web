@@ -24,6 +24,7 @@ jobs:
       ORGANIZATION_NAME: ${{ vars.ORGANIZATION_NAME }}
       IMAGE_NAME: ${{ vars.IMAGE_NAME }}
       VITE_API_URL: ${{ vars.VITE_API_URL }}
+      VITE_TG_BOT_LINK: ${{ vars.VITE_TG_BOT_LINK }}
       VERSION: ${{ needs.version.outputs.release_version }}
     secrets:
       DOCKER_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
@@ -31,3 +32,18 @@ jobs:
     permissions:
       contents: write
       packages: write
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install SSH Client and sshpass
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y openssh-client sshpass
+      - name: Deploy via SSH with password
+        run: |
+          sshpass -p '${{ secrets.SSH_PASSWORD }}' \
+            ssh -o StrictHostKeyChecking=no \
+            ${{ vars.SSH_USER }}@${{ vars.SSH_HOST }} \
+            "${{ vars.DEPLOY_SCRIPT }}"

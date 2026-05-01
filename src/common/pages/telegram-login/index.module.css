@@ -1,3 +1,28 @@
 .background{
+    display: grid;
+    grid-template-rows: auto 1fr;
 
+    .background1{
+        display: grid;
+        gap: 8px;
+        grid-template-rows: auto auto 1fr;
+    }
+}
+
+.log_item{
+    background-color: white;
+    color: black;
+
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    .log_item_copy{
+        display: grid;
+        justify-content: right;
+    }
+}
+
+.log_item:active{
+    filter:  brightness(0.7)
 }

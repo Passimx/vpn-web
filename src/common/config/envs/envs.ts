@@ -6,15 +6,23 @@ export enum EnvironmentEnum {
     PRODUCTION = 'production',
 }
 
+type TelegramType = {
+    botLink: string;
+};
+
 type EnvsType = {
     apiUrl: string;
     environment: EnvironmentEnum;
     settings?: Partial<SettingsType>;
     version: string;
+    telegram: TelegramType;
 };
 
 export const Envs: EnvsType = {
     apiUrl: import.meta.env.VITE_API_URL,
     environment: import.meta.env.VITE_ENVIRONMENT,
     version: import.meta.env.VITE_APP_VERSION ?? json.version,
+    telegram: {
+        botLink: import.meta.env.VITE_TG_BOT_LINK,
+    },
 };

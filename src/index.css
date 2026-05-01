@@ -44,9 +44,6 @@ body,
     -webkit-user-select: none;
     user-select: none;
 
-    /* for dev checking */
-    /*--safe-area-inset-bottom: 32px;*/
-    --safe-area-inset-bottom: env(safe-area-inset-bottom, 32px);
 }
 
 /* класс для всего текста, что может быть изменен при выборе другого языка */
@@ -87,5 +84,8 @@ html{
     --color-3: #08365e;
     --color-4: #0a4375;
     --color-5: #0098ea;
-    --padding: 8px
+    --padding: 8px;
+    /* for dev checking */
+    /*--safe-area-inset-bottom: 32px;*/
+    --safe-area-inset-bottom: env(safe-area-inset-bottom, 32px);
 }

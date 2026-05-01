@@ -5,6 +5,7 @@ import styles2 from '../pages/index.module.css';
 import { useDeletePage } from '../../hooks/use-delete-page.hook.ts';
 import { useTranslation } from 'react-i18next';
 import { useScrollPage } from '../../hooks/use-scroll-page.hook.ts';
+import { Button } from '../button';
 
 export const NavigationItem: FC<{ children: JSX.Element; index: number }> = memo(({ children, index }) => {
     const { t } = useTranslation();
@@ -31,14 +32,8 @@ export const NavigationItem: FC<{ children: JSX.Element; index: number }> = memo
 
     return (
         <div id={id} ref={observerTarget} className={styles.background}>
-            {children}
-            <div className={styles.background2}>
-                {index > 0 && (
-                    <div className={styles.background3} onClick={scrollPage}>
-                        {t('back')}
-                    </div>
-                )}
-            </div>
+            <div className={styles.background1}>{children}</div>
+            <div className={styles.background2}>{index > 0 && <Button text={t('back')} onClick={scrollPage} />}</div>
         </div>
     );
 });
