@@ -1,4 +1,4 @@
-import { UserKeyType } from '../../store/user/types/state.type.ts';
+import { BalanceAccountType, UserKeyType } from '../../store/user/types/state.type.ts';
 
 export type LoginResponse = {
     token: string;
@@ -10,6 +10,6 @@ export type LoginRequest = {
 
 export type UserResponse = {
     id: string;
-    balance: number;
+    balanceAccount: BalanceAccountType;
     keys: UserKeyType[];
 };

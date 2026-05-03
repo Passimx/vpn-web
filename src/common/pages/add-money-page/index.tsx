@@ -1,0 +1,119 @@
+import { FC, useEffect, useState } from 'react';
+import styles from './index.module.css';
+import { useTranslation } from 'react-i18next';
+import { PageTitle } from '../../components/page-title';
+import { Card } from '../../components/card';
+import wechat from '../../../../public/assets/images/wechat.png';
+import ton from '../../../../public/assets/images/ton.svg';
+import sber from '../../../../public/assets/images/sber.png';
+import Input from '../../components/input';
+import { useAppAction, useAppSelector } from '../../store';
+import { EventsEnum } from '../../types/events/events.enum.ts';
+import { convert, formatNumber } from '../wallet/helper.ts';
+import { createSberInvoice, createTonInvoice, createWechatInvoice } from '../../api/invoices';
+import { InvoicePage } from '../../components/invoice-page';
+
+export const AddMoneyPage: FC = () => {
+    const id = 'id';
+    const { t } = useTranslation();
+    const [amount, setAmount] = useState<number>(0);
+    const { postMessageToBroadCastChannel, setStateApp } = useAppAction();
+    const currencyPrice = useAppSelector((state) => state.app.settings?.currencyPrice)!;
+
+    const checkBalance = () => {
+        if (amount && amount > 0) return true;
+
+        postMessageToBroadCastChannel({ event: EventsEnum.SHOW_TEXT, data: t('t15') });
+
+        const element = document.getElementById(id);
+        element?.focus();
+
+        return false;
+    };
+
+    useEffect(() => {
+        const element = document.getElementById(id);
+        if (!element) return;
+
+        const onInput = (e: any) => {
+            setAmount(Number(e.target.value));
+        };
+        element.addEventListener('input', onInput);
+
+        return () => element.removeEventListener('input', onInput);
+    }, []);
+
+    const onWechat = async () => {
+        const result = checkBalance();
+        if (!result) return;
+
+        setStateApp({ foreground: <InvoicePage request={createWechatInvoice({ amount })} /> });
+    };
+
+    const onSber = () => {
+        const result = checkBalance();
+        if (!result) return;
+
+        setStateApp({ foreground: <InvoicePage request={createSberInvoice({ amount })} /> });
+    };
+
+    const onTon = () => {
+        const result = checkBalance();
+        if (!result) return;
+
+        setStateApp({ foreground: <InvoicePage request={createTonInvoice({ amount })} /> });
+    };
+
+    return (
+        <div className={styles.background}>
+            <PageTitle title={t('t13')} />
+            <Card>
+                <div className={styles.div11}>
+                    <Input id={id} placeholder={t('t14')} type={'number'} />
+                    <div className={styles.div12}>{t('t10')}</div>
+                </div>
+            </Card>
+            <div className={styles.div30}>
+                <Card onClick={onWechat}>
+                    <div className={styles.div1}>
+                        <div className={styles.div2}>
+                            <img src={wechat} className={styles.div3} alt={'icon'} />
+                        </div>
+                        <div className={styles.div6}>
+                            <div className={styles.div7}>WeChat</div>
+                            <div className={styles.div8}>
+                                {formatNumber(convert(amount, t('t11'), 'cny', currencyPrice), '¥')}
+                            </div>
+                        </div>
+                    </div>
+                </Card>
+                <Card onClick={onSber}>
+                    <div className={styles.div1}>
+                        <div className={styles.div2}>
+                            <img src={sber} className={styles.div3} alt={'icon'} />
+                        </div>
+                        <div className={styles.div6}>
+                            <div className={styles.div7}>{t('t16')}</div>
+                            <div className={styles.div8}>
+                                {formatNumber(convert(amount, t('t11'), 'rub', currencyPrice), '₽')}
+                            </div>
+                        </div>
+                    </div>
+                </Card>
+                <Card onClick={onTon}>
+                    <div className={styles.div1}>
+                        <div className={styles.div4} style={{ backgroundColor: 'var(--color-5)' }}>
+                            <img src={ton} className={styles.div5} alt={'icon'} />
+                        </div>
+                        <div className={styles.div6}>
+                            <div className={styles.div7}>TON</div>
+                            <div className={styles.div8}>
+                                {formatNumber(convert(amount, t('t11'), 'the-open-network', currencyPrice), 'TON')}
+                            </div>
+                        </div>
+                    </div>
+                </Card>
+            </div>
+        </div>
+    );
+};

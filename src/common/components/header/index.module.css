@@ -5,7 +5,7 @@
     grid-template-columns: auto 1fr auto;
     grid-template-rows: 36px;
     /*justify-content: right;*/
-    /*grid-template-columns: auto;*/
+    /*grid-add-money-page-columns: auto;*/
 
     .background_4{
         display: grid;

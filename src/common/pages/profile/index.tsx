@@ -6,16 +6,21 @@ import { useAppAction } from '../../store';
 import { EventsEnum } from '../../types/events/events.enum.ts';
 import { IoWallet } from 'react-icons/io5';
 import { RiLogoutBoxFill } from 'react-icons/ri';
+import { useSetPage } from '../../hooks/use-set-page.hook.ts';
+import { Wallet } from '../wallet';
 
 export const Profile: FC = () => {
     const { t } = useTranslation();
     const { postMessageToBroadCastChannel } = useAppAction();
+    const setPage = useSetPage();
 
     const onLogout = () => {
         postMessageToBroadCastChannel({ event: EventsEnum.LOGOUT });
     };
 
-    const onWallet = () => {};
+    const onWallet = () => {
+        setPage(<Wallet />);
+    };
 
     return (
         <div className={styles.background}>

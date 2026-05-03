@@ -1,7 +1,10 @@
 import { JSX } from 'react';
+import { CurrencyPrice } from '../../../types/api/currency-price.ts';
 
 export type SettingsType = {
-    lang?: string;
+    lang: string;
+    currency: string;
+    currencyPrice: CurrencyPrice;
 };
 
 export enum TabEnum {

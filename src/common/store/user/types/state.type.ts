@@ -7,10 +7,17 @@ export type UserKeyType = {
     serverCode: string;
 };
 
+export type BalanceAccountType = {
+    rub: number;
+    cny: number;
+    ton: number;
+    tonUsdt: number;
+};
+
 export type UserStateType = {
     id: string;
     token: string;
-    balance: number;
+    balanceAccount: BalanceAccountType;
     updatedAt: number;
     keys: UserKeyType[];
 };
