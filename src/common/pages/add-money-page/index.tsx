@@ -35,9 +35,7 @@ export const AddMoneyPage: FC = () => {
         const element = document.getElementById(id);
         if (!element) return;
 
-        const onInput = (e: any) => {
-            setAmount(Number(e.target.value));
-        };
+        const onInput = (e: any) => setAmount(Number(e.target.value));
         element.addEventListener('input', onInput);
 
         return () => element.removeEventListener('input', onInput);
