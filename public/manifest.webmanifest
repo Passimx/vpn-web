@@ -1,6 +1,6 @@
 {
-    "name": "PassimX VPN",
-    "short_name": "PassimX VPN",
+    "name": "PassimX",
+    "short_name": "PassimX",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#0a4375",
@@ -18,7 +18,7 @@
         { "src": "/assets/images/mobile.png", "type": "image/png", "sizes": "852x1474", "form_factor": "narrow" }
     ],
     "orientation": "any",
-    "description": "PassimX VPN",
+    "description": "PassimX",
     "edge_side_panel": {
         "preferred_width": 480
     },
