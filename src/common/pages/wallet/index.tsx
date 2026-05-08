@@ -36,7 +36,7 @@ export const Wallet: FC = () => {
                             <div className={styles.div5}>
                                 <div className={styles.div6}>{t('t8')}</div>
                                 <div className={`${styles.div6} ${styles.div8}`}>
-                                    {formatNumber(balanceAccount.rub, t('t10'))}
+                                    {formatNumber(balanceAccount.rub)}
                                 </div>
                             </div>
                             <div className={styles.div5}>
@@ -60,7 +60,7 @@ export const Wallet: FC = () => {
                             <div className={styles.div5}>
                                 <div className={styles.div6}>{t('t9')}</div>
                                 <div className={`${styles.div6} ${styles.div8}`}>
-                                    {formatNumber(balanceAccount.cny, t('t10'))}
+                                    {formatNumber(balanceAccount.cny)}
                                 </div>
                             </div>
                             <div className={styles.div5}>
@@ -84,7 +84,7 @@ export const Wallet: FC = () => {
                             <div className={styles.div5}>
                                 <div className={styles.div6}>TON</div>
                                 <div className={`${styles.div6} ${styles.div8}`}>
-                                    {formatNumber(balanceAccount.ton, t('t10'))}
+                                    {formatNumber(balanceAccount.ton)}
                                 </div>
                             </div>
                             <div className={styles.div5}>
@@ -108,7 +108,7 @@ export const Wallet: FC = () => {
                             <div className={styles.div5}>
                                 <div className={styles.div6}>USDT (TON)</div>
                                 <div className={`${styles.div6} ${styles.div8}`}>
-                                    {formatNumber(balanceAccount.tonUsdt, t('t10'))}
+                                    {formatNumber(balanceAccount.tonUsdt)}
                                 </div>
                             </div>
                             <div className={styles.div5}>

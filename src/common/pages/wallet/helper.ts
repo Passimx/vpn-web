@@ -1,12 +1,12 @@
 import { CurrencyPrice } from '../../types/api/currency-price.ts';
 import { BalanceAccountType } from '../../store/user/types/state.type.ts';
 
-export function formatNumber(value: number, symdol: string) {
+export function formatNumber(value: number, symdol?: string) {
     const result = value.toLocaleString('ru-RU', {
         minimumFractionDigits: 0,
         maximumFractionDigits: 2,
     });
-    return `${result} ${symdol}`;
+    return `${result} ${symdol ?? ''}`;
 }
 
 export function convert(amount: number, from: string, to: string, rates: CurrencyPrice) {
