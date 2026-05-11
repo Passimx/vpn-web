@@ -6,12 +6,17 @@ import { Card } from '../../components/card';
 import wechat from '../../../../public/assets/images/wechat.png';
 import ton from '../../../../public/assets/images/ton.svg';
 import sber from '../../../../public/assets/images/sber.png';
+import tonkeeper from '../../../../public/assets/images/tonkeeper.png';
+import mytonwallet from '../../../../public/assets/images/mytonwallet.png';
+import tonhub from '../../../../public/assets/images/tonhub.png';
 import Input from '../../components/input';
 import { useAppAction, useAppSelector } from '../../store';
 import { EventsEnum } from '../../types/events/events.enum.ts';
 import { convert, formatNumber } from '../wallet/helper.ts';
 import { createSberInvoice, createTonInvoice, createWechatInvoice } from '../../api/invoices';
 import { InvoicePage } from '../../components/invoice-page';
+import { CurrencyEnum } from '../../types/api/currency.enum.ts';
+import { AppWalletEnum } from '../../types/api/app-wallet.enum.ts';
 
 export const AddMoneyPage: FC = () => {
     const id = 'id';
@@ -55,11 +60,13 @@ export const AddMoneyPage: FC = () => {
         setStateApp({ foreground: <InvoicePage request={createSberInvoice({ amount })} /> });
     };
 
-    const onTon = () => {
+    const onTon = (app: AppWalletEnum) => {
         const result = checkBalance();
         if (!result) return;
 
-        setStateApp({ foreground: <InvoicePage request={createTonInvoice({ amount })} /> });
+        setStateApp({
+            foreground: <InvoicePage request={createTonInvoice({ amount, currency: CurrencyEnum.TON, app })} />,
+        });
     };
 
     return (
@@ -98,8 +105,8 @@ export const AddMoneyPage: FC = () => {
                         </div>
                     </div>
                 </Card>
-                <Card onClick={onTon}>
-                    <div className={styles.div1}>
+                <Card>
+                    <div className={styles.div1_1}>
                         <div className={styles.div4} style={{ backgroundColor: 'var(--color-5)' }}>
                             <img src={ton} className={styles.div5} alt={'icon'} />
                         </div>
@@ -108,6 +115,26 @@ export const AddMoneyPage: FC = () => {
                             <div className={styles.div8}>
                                 {formatNumber(convert(amount, t('t11'), 'the-open-network', currencyPrice), 'TON')}
                             </div>
+                        </div>
+                        <div className={styles.div1_2}>
+                            <img
+                                src={tonkeeper}
+                                className={styles.div3}
+                                alt={'icon'}
+                                onClick={() => onTon(AppWalletEnum.TON_KEEPER)}
+                            />
+                            <img
+                                src={mytonwallet}
+                                className={styles.div3}
+                                alt={'icon'}
+                                onClick={() => onTon(AppWalletEnum.MY_TON_WALLET)}
+                            />
+                            <img
+                                src={tonhub}
+                                className={styles.div3}
+                                alt={'icon'}
+                                onClick={() => onTon(AppWalletEnum.TON_HUB)}
+                            />
                         </div>
                     </div>
                 </Card>

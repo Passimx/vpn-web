@@ -7,7 +7,7 @@
     .div30{
         display: grid;
 
-        .div1{
+        .div1, .div1_1{
             display: grid;
             align-items: center;
             gap: 0;
@@ -59,6 +59,23 @@
                     opacity: 0.7;
                 }
             }
+        }
+        .div1_1{
+            grid-template-columns: auto auto 1fr;
+
+            .div1_2{
+                height: 100%;
+                display: grid;
+                justify-content: right;
+                grid-template-columns: auto auto auto;
+
+                .div3{
+                    height: var(--image-size);
+                    width: var(--image-size);
+                    border-radius: var(--border-radius);
+                }
+            }
+
         }
 
     }
