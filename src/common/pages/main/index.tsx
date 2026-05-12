@@ -1,5 +1,10 @@
 import type { FC } from 'react';
+import { Apps } from '../../components/apps';
 
 export const MainPage: FC = () => {
-    return <div>Hello world!</div>;
+    return (
+        <div>
+            <Apps />
+        </div>
+    );
 };
