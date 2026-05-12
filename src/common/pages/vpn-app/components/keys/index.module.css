@@ -1,0 +1,26 @@
+.background{
+
+
+    .div1{
+        display: grid;
+
+        .div5{
+            display: grid;
+            cursor: pointer;
+
+            .div6{
+                display: grid;
+                grid-template-columns: auto 1fr;
+
+                .div7{
+                    color: #80ff80;
+                }
+
+                .div8{
+                    color: #ff8080;
+                }
+            }
+        }
+    }
+
+}
