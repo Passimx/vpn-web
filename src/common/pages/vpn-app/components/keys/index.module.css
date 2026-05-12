@@ -6,7 +6,6 @@
 
         .div5{
             display: grid;
-            cursor: pointer;
 
             .div6{
                 display: grid;
@@ -18,6 +17,21 @@
 
                 .div8{
                     color: #ff8080;
+                }
+            }
+
+            .div11{
+                display: grid;
+
+                .div12{
+                    .div13{
+                        display: grid;
+                        background-color: #439fef;
+                        cursor: pointer;
+                        border-radius: 6px;
+                        padding: 4px;
+                    }
+
                 }
             }
         }

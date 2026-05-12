@@ -18,6 +18,10 @@ export const Keys: FC = () => {
                         <Card>
                             <div className={styles.div5}>
                                 <div className={styles.div6}>
+                                    <div>ID:</div>
+                                    <div>{id}</div>
+                                </div>
+                                <div className={styles.div6}>
                                     <div>{t('t19')}:</div>
                                     <div>
                                         {t(`${serverCode}_flag`)}&nbsp;{t(`${serverCode}_name`)}
@@ -36,6 +40,16 @@ export const Keys: FC = () => {
                                             day: '2-digit',
                                         })}
                                     </div>
+                                </div>
+                                <div className={styles.div11}>
+                                    <div className={styles.div12}>
+                                        <div className={styles.div13}>{t('extend_key')}</div>
+                                    </div>
+                                    {status === 'active' && (
+                                        <div className={styles.div12}>
+                                            <div className={styles.div13}>{t('change_server')}</div>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </Card>
