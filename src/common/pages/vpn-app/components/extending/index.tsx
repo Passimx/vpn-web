@@ -31,6 +31,7 @@ export const Extending: FC<Props> = ({ kind, keyId }) => {
     }, [kind]);
 
     const onPay = async (tariffId: string) => {
+        setTariffs([]);
         const result = await extendKey({ keyId, tariffId });
 
         if (result.success) {
