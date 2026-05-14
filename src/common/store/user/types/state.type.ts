@@ -5,6 +5,7 @@ export type UserKeyType = {
     createdAt: Date;
     status: string;
     serverCode: string;
+    serverId: string;
 };
 
 export type BalanceAccountType = {

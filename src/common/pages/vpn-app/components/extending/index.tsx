@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import styles from './index.module.css';
-import { Props } from './types/props.type.ts';
+import { PropsType } from './types/props.type.ts';
 import { extendKey, getTariffs } from '../../../../api/tariffs';
 import { TariffsResponse } from '../../../../types/api/tariffs.ts';
 import { Card } from '../../../../components/card';
@@ -11,24 +11,22 @@ import { RotateLoading } from '../../../../components/rotate-loading';
 import { EventsEnum } from '../../../../types/events/events.enum.ts';
 import { useScrollPage } from '../../../../hooks/use-scroll-page.hook.ts';
 
-export const Extending: FC<Props> = ({ kind, keyId }) => {
+export const Extending: FC<PropsType> = ({ kind, keyId }) => {
     const { t } = useTranslation();
     const { postMessageToBroadCastChannel, setStateUser } = useAppAction();
     const [tariffs, setTariffs] = useState<TariffsResponse[]>([]);
     const scrollPage = useScrollPage();
-    const currencyPrice = useAppSelector((state) => state.app.settings?.currencyPrice)!;
     const keys = useAppSelector((state) => state.user.keys)!;
+    const currencyPrice = useAppSelector((state) => state.app.settings?.currencyPrice)!;
 
     useEffect(() => {
         const updateTariffs = async () => {
             const response = await getTariffs({ kind });
-            if (response.success) {
-                setTariffs(response.data);
-            }
+            if (response.success) setTariffs(response.data);
         };
 
         updateTariffs();
-    }, [kind]);
+    }, [kind, keyId]);
 
     const onPay = async (tariffId: string) => {
         setTariffs([]);

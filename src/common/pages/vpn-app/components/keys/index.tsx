@@ -7,7 +7,7 @@ import { Card } from '../../../../components/card';
 import { EventsEnum } from '../../../../types/events/events.enum.ts';
 import { useSetPage } from '../../../../hooks/use-set-page.hook.ts';
 import { Extending } from '../extending';
-import { ChangeCountries } from '../change-countries';
+import { ChangeServer } from '../change-server';
 
 export const Keys: FC = () => {
     const { t } = useTranslation();
@@ -62,7 +62,10 @@ export const Keys: FC = () => {
                                         <div className={styles.div13}>{t('extend_key')}</div>
                                     </div>
                                     {status === 'active' && serverCode !== 'white' && (
-                                        <div className={styles.div12} onClick={() => setPage(<ChangeCountries />)}>
+                                        <div
+                                            className={styles.div12}
+                                            onClick={() => setPage(<ChangeServer keyId={id} />)}
+                                        >
                                             <div className={styles.div13}>{t('change_server')}</div>
                                         </div>
                                     )}
