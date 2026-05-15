@@ -16,7 +16,6 @@ export const NewKey: FC<PropsType> = ({ kind }) => {
     const [tariffs, setTariffs] = useState<TariffsResponse[]>([]);
     const { postMessageToBroadCastChannel, setStateUser } = useAppAction();
     const scrollPage = useScrollPage();
-    const keys = useAppSelector((state) => state.user.keys)!;
     const currencyPrice = useAppSelector((state) => state.app.settings?.currencyPrice)!;
 
     useEffect(() => {
@@ -32,10 +31,8 @@ export const NewKey: FC<PropsType> = ({ kind }) => {
         setTariffs([]);
         const result = await createKey({ tariffId });
 
-        if (result.success) {
-            const updatedKeys = keys.map((key) => (key.id === result.data.id ? result.data : key));
-            setStateUser({ keys: updatedKeys });
-        } else postMessageToBroadCastChannel({ event: EventsEnum.SHOW_TEXT, data: result.data });
+        if (result.success) setStateUser(result.data);
+        else postMessageToBroadCastChannel({ event: EventsEnum.SHOW_TEXT, data: result.data });
 
         scrollPage();
     };

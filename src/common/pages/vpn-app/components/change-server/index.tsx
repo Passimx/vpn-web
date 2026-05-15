@@ -34,10 +34,8 @@ export const ChangeServer: FC<PropsType> = ({ keyId }) => {
     const onChange = async (serverId: string) => {
         setServers([]);
         const response = await changeServer({ serverId, keyId });
-        if (response.success) {
-            const updatedKeys = keys.map((key) => (key.id === response.data.id ? response.data : key));
-            setStateUser({ keys: updatedKeys });
-        } else postMessageToBroadCastChannel({ event: EventsEnum.SHOW_TEXT, data: response.data });
+        if (response.success) setStateUser(response.data);
+        else postMessageToBroadCastChannel({ event: EventsEnum.SHOW_TEXT, data: response.data });
 
         scrollPage();
     };

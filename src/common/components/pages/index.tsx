@@ -19,30 +19,43 @@ export const Pages: FC = () => {
         const element = document.getElementById(styles.background);
         if (!element) return;
 
-        const onScrollEnd = () => {
+        let timeout: NodeJS.Timeout;
+
+        const handleScrollEnd = () => {
             const pageWidth = element.clientWidth;
             const scrollLeft = element.scrollLeft;
             const scrollWidth = element.scrollWidth;
 
-            if (pageWidth + scrollLeft === scrollWidth) return;
+            if (pageWidth + scrollLeft >= scrollWidth) return;
+
             const leftSide = scrollWidth - scrollLeft - pageWidth < pageWidth / 2;
 
-            if (leftSide)
+            if (leftSide) {
                 element.scrollTo({
                     left: element.scrollWidth,
                     behavior: 'smooth',
                 });
-            else
+            } else {
                 element.scrollTo({
-                    left: element.scrollWidth - pageWidth - pageWidth + 8,
+                    left: element.scrollWidth - pageWidth * 2 + 8,
                     behavior: 'smooth',
                 });
+            }
         };
 
-        element.addEventListener('scrollend', onScrollEnd);
+        const onScroll = () => {
+            clearTimeout(timeout);
+
+            timeout = setTimeout(() => {
+                handleScrollEnd();
+            }, 120);
+        };
+
+        element.addEventListener('scroll', onScroll, { passive: true });
 
         return () => {
-            element.removeEventListener('scrollend', onScrollEnd);
+            clearTimeout(timeout);
+            element.removeEventListener('scroll', onScroll);
         };
     }, [pages]);
 

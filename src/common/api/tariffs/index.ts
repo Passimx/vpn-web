@@ -6,18 +6,18 @@ import {
     getTariffsType,
     TariffsResponse,
 } from '../../types/api/tariffs.ts';
-import { UserKeyType } from '../../store/user/types/state.type.ts';
+import { UserResponse } from '../../types/api/user.ts';
 
 export const getTariffs = (body: getTariffsType): Promise<IData<TariffsResponse[]>> => {
     return Api<TariffsResponse[]>('/tariffs', { method: 'POST', body });
 };
 
-export const extendKey = (body: ExtendKeyBodyType): Promise<IData<UserKeyType>> => {
-    return Api<UserKeyType>('/extend-key', { method: 'POST', body });
+export const extendKey = (body: ExtendKeyBodyType): Promise<IData<UserResponse>> => {
+    return Api<UserResponse>('/extend-key', { method: 'POST', body });
 };
 
-export const createKey = (body: CreateKeyBodyType): Promise<IData<UserKeyType>> => {
-    return Api<UserKeyType>('/create-key', { method: 'POST', body });
+export const createKey = (body: CreateKeyBodyType): Promise<IData<UserResponse>> => {
+    return Api<UserResponse>('/create-key', { method: 'POST', body });
 };
 
 export const deleteKey = (body: DeleteKeyBodyType): Promise<IData<boolean>> => {
