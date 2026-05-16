@@ -10,12 +10,20 @@ import { Extending } from '../extending';
 import { ChangeServer } from '../change-server';
 import { IoIosAddCircle } from 'react-icons/io';
 import { SelectTariff } from '../select-tariff';
+import { deleteKey } from '../../../../api/tariffs';
 
 export const Keys: FC = () => {
     const { t } = useTranslation();
     const setPage = useSetPage();
-    const { postMessageToBroadCastChannel } = useAppAction();
+    const { postMessageToBroadCastChannel, setStateUser } = useAppAction();
     const keys = useAppSelector((state) => state.user.keys);
+
+    const onDelete = async (keyId: string) => {
+        const result = await deleteKey({ keyId });
+
+        if (result.success) setStateUser(result.data);
+        else postMessageToBroadCastChannel({ event: EventsEnum.SHOW_TEXT, data: result.data });
+    };
 
     return (
         <div className={styles.background}>
@@ -94,6 +102,11 @@ export const Keys: FC = () => {
                                     >
                                         <div className={styles.div13}>{t('copy_key')}</div>
                                     </div>
+                                    {status === 'expired' && (
+                                        <div className={styles.div12} onClick={() => onDelete(id)}>
+                                            <div className={`${styles.div13} ${styles.div14}`}>{t('delete_key')}</div>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </Card>

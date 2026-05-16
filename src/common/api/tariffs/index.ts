@@ -20,6 +20,6 @@ export const createKey = (body: CreateKeyBodyType): Promise<IData<UserResponse>>
     return Api<UserResponse>('/create-key', { method: 'POST', body });
 };
 
-export const deleteKey = (body: DeleteKeyBodyType): Promise<IData<boolean>> => {
-    return Api<boolean>('/delete-key', { method: 'POST', body });
+export const deleteKey = (body: DeleteKeyBodyType): Promise<IData<UserResponse>> => {
+    return Api<UserResponse>('/delete-key', { method: 'POST', body });
 };
