@@ -2,17 +2,20 @@ import { FC } from 'react';
 import styles from './index.module.css';
 import { Card } from '../../components/card';
 import { useTranslation } from 'react-i18next';
-import { useAppAction } from '../../store';
+import { useAppAction, useAppSelector } from '../../store';
 import { EventsEnum } from '../../types/events/events.enum.ts';
 import { IoWallet } from 'react-icons/io5';
 import { RiLogoutBoxFill } from 'react-icons/ri';
 import { useSetPage } from '../../hooks/use-set-page.hook.ts';
 import { Wallet } from '../wallet';
+import { formatNumber, getTotalBalance } from '../wallet/helper.ts';
 
 export const Profile: FC = () => {
     const { t } = useTranslation();
-    const { postMessageToBroadCastChannel } = useAppAction();
     const setPage = useSetPage();
+    const { postMessageToBroadCastChannel } = useAppAction();
+    const balanceAccount = useAppSelector((state) => state.user.balanceAccount);
+    const currencyPrice = useAppSelector((state) => state.app.settings?.currencyPrice);
 
     const onLogout = () => {
         postMessageToBroadCastChannel({ event: EventsEnum.LOGOUT });
@@ -31,6 +34,11 @@ export const Profile: FC = () => {
                             <IoWallet className={styles.div4} />
                         </div>
                         <div>{t('text7')}</div>
+                        <div className={styles.div5}>
+                            {balanceAccount &&
+                                currencyPrice &&
+                                formatNumber(getTotalBalance(balanceAccount, t('t11'), currencyPrice), t('t10'))}
+                        </div>
                     </div>
                 </Card>
             </div>
