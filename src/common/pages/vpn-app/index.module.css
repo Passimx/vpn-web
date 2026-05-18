@@ -6,8 +6,9 @@
         align-items: center;
         justify-items: center;
 
-        img{
+        .img{
             width: 150px;
+            height: 150px;
         }
     }
 

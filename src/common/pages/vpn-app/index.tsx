@@ -9,6 +9,7 @@ import { IoMdCloudDownload } from 'react-icons/io';
 import { useAppSelector } from '../../store';
 import { BiSupport } from 'react-icons/bi';
 import vpnIcon from '../../../../public/assets/images/vpn-icon.png';
+import { Image } from '../../components/image';
 
 export const VpnApp: FC = () => {
     const { isIos, isPhone } = useAppSelector((state) => state.app);
@@ -39,7 +40,7 @@ export const VpnApp: FC = () => {
     return (
         <div className={styles.background}>
             <div className={styles.div0}>
-                <img src={vpnIcon} alt={'icon'} />
+                <Image src={vpnIcon} className={styles.img} />
             </div>
             <div className={styles.div1} onClick={() => setPage(<Keys />)}>
                 <Card>

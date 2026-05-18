@@ -1,0 +1,36 @@
+.background {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+
+    img {
+        transition: opacity 0.3s ease-in-out;
+    }
+}
+
+.load{
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+    background-image: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0) 0%,
+            var(--color-4) 50%,
+            rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    background-position: -100% 0;
+    animation: shimmer 1.5s infinite linear;
+    border-radius: 15%;
+
+    img {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+}
+@keyframes shimmer {
+    to {
+        background-position: 100% 0;
+    }
+}

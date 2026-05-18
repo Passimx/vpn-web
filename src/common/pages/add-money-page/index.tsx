@@ -17,6 +17,7 @@ import { createSberInvoice, createTonInvoice, createWechatInvoice } from '../../
 import { InvoicePage } from '../../components/invoice-page';
 import { CurrencyEnum } from '../../types/api/currency.enum.ts';
 import { AppWalletEnum } from '../../types/api/app-wallet.enum.ts';
+import { Image } from '../../components/image';
 
 export const AddMoneyPage: FC = () => {
     const id = 'id';
@@ -82,7 +83,7 @@ export const AddMoneyPage: FC = () => {
                 <Card onClick={onWechat}>
                     <div className={styles.div1}>
                         <div className={styles.div2}>
-                            <img src={wechat} className={styles.div3} alt={'icon'} />
+                            <Image src={wechat} className={styles.div3} />
                         </div>
                         <div className={styles.div6}>
                             <div className={styles.div7}>WeChat</div>
@@ -95,7 +96,7 @@ export const AddMoneyPage: FC = () => {
                 <Card onClick={onSber}>
                     <div className={styles.div1}>
                         <div className={styles.div2}>
-                            <img src={sber} className={styles.div3} alt={'icon'} />
+                            <Image src={sber} className={styles.div3} />
                         </div>
                         <div className={styles.div6}>
                             <div className={styles.div7}>{t('t16')}</div>
@@ -108,7 +109,7 @@ export const AddMoneyPage: FC = () => {
                 <Card>
                     <div className={styles.div1_1}>
                         <div className={styles.div4} style={{ backgroundColor: 'var(--color-5)' }}>
-                            <img src={ton} className={styles.div5} alt={'icon'} />
+                            <Image src={ton} className={styles.div5} />
                         </div>
                         <div className={styles.div6}>
                             <div className={styles.div7}>TON</div>
@@ -117,24 +118,17 @@ export const AddMoneyPage: FC = () => {
                             </div>
                         </div>
                         <div className={styles.div1_2}>
-                            <img
+                            <Image
                                 src={tonkeeper}
                                 className={styles.div3}
-                                alt={'icon'}
                                 onClick={() => onTon(AppWalletEnum.TON_KEEPER)}
                             />
-                            <img
+                            <Image
                                 src={mytonwallet}
                                 className={styles.div3}
-                                alt={'icon'}
                                 onClick={() => onTon(AppWalletEnum.MY_TON_WALLET)}
                             />
-                            <img
-                                src={tonhub}
-                                className={styles.div3}
-                                alt={'icon'}
-                                onClick={() => onTon(AppWalletEnum.TON_HUB)}
-                            />
+                            <Image src={tonhub} className={styles.div3} onClick={() => onTon(AppWalletEnum.TON_HUB)} />
                         </div>
                     </div>
                 </Card>

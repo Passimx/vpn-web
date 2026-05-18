@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { convert, formatNumber, getTotalBalance } from './helper.ts';
 import { useSetPage } from '../../hooks/use-set-page.hook.ts';
 import { AddMoneyPage } from '../add-money-page';
+import { Image } from '../../components/image';
 
 export const Wallet: FC = () => {
     const { t } = useTranslation();
@@ -54,7 +55,7 @@ export const Wallet: FC = () => {
                     </div>
                     <div className={styles.div1}>
                         <div className={styles.div2} style={{ backgroundColor: 'red' }}>
-                            <img src={cny} className={styles.div3} alt={'icon'} />
+                            <Image src={cny} className={styles.div3} />
                         </div>
                         <div className={styles.div4}>
                             <div className={styles.div5}>
@@ -78,7 +79,7 @@ export const Wallet: FC = () => {
                     </div>
                     <div className={styles.div1}>
                         <div className={styles.div2} style={{ backgroundColor: 'var(--color-5)' }}>
-                            <img src={ton} className={styles.div3} alt={'icon'} />
+                            <Image src={ton} className={styles.div3} />
                         </div>
                         <div className={styles.div4}>
                             <div className={styles.div5}>
@@ -102,7 +103,7 @@ export const Wallet: FC = () => {
                     </div>
                     <div className={styles.div1}>
                         <div className={styles.div2} style={{ backgroundColor: '#00b386' }}>
-                            <img src={usdt} className={styles.div3} alt={'icon'} />
+                            <Image src={usdt} className={styles.div3} />
                         </div>
                         <div className={styles.div4}>
                             <div className={styles.div5}>
