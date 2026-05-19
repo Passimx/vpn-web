@@ -1,6 +1,7 @@
 export type RefInfoUserItemType = {
     id: string;
-    count: number;
+    allCount: number;
+    activeCount: number;
 };
 
 export type RatingUserType = {
