@@ -24,9 +24,9 @@ export const Header: FC = () => {
     };
 
     return (
-        <div className={styles.background}>
+        <div className={styles.background} onClick={onClickProfile}>
             {user?.id ? (
-                <div className={styles.background_4} onClick={onClickProfile}>
+                <div className={styles.background_4}>
                     <FaUserCircle className={styles.background_3} />
                     <div>{shortId}</div>
                 </div>
