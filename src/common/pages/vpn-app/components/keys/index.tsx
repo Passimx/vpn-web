@@ -1,36 +1,18 @@
 import { FC } from 'react';
 import styles from './index.module.css';
-import { useAppAction, useAppSelector } from '../../../../store';
+import { useAppSelector } from '../../../../store';
 import { PageTitle } from '../../../../components/page-title';
 import { useTranslation } from 'react-i18next';
 import { Card } from '../../../../components/card';
-import { EventsEnum } from '../../../../types/events/events.enum.ts';
 import { useSetPage } from '../../../../hooks/use-set-page.hook.ts';
-import { Extending } from '../extending';
-import { ChangeServer } from '../change-server';
 import { IoIosAddCircle } from 'react-icons/io';
 import { SelectTariff } from '../select-tariff';
-import { changeAutoRenewKey, deleteKey } from '../../../../api/tariffs';
+import { Key } from '../key';
 
 export const Keys: FC = () => {
     const { t } = useTranslation();
     const setPage = useSetPage();
-    const { postMessageToBroadCastChannel, setStateUser } = useAppAction();
     const keys = useAppSelector((state) => state.user.keys);
-
-    const onDelete = async (keyId: string) => {
-        const result = await deleteKey({ keyId });
-
-        if (result.success) setStateUser(result.data);
-        else postMessageToBroadCastChannel({ event: EventsEnum.SHOW_TEXT, data: result.data });
-    };
-
-    const onChangeAutoRenew = async (keyId: string) => {
-        const result = await changeAutoRenewKey({ keyId });
-
-        if (result.success) setStateUser(result.data);
-        else postMessageToBroadCastChannel({ event: EventsEnum.SHOW_TEXT, data: result.data });
-    };
 
     return (
         <div className={styles.background}>
@@ -47,8 +29,8 @@ export const Keys: FC = () => {
                     </Card>
                 </div>
 
-                {keys?.map(({ id, serverCode, status, expiresAt, key, autoRenewEnabled, createdAt }) => (
-                    <div key={id}>
+                {keys?.map(({ id, serverCode, status, expiresAt, createdAt }) => (
+                    <div key={id} className={styles.div91} onClick={() => setPage(<Key keyId={id} />)}>
                         <Card>
                             <div className={styles.div5}>
                                 <div className={styles.div6}>
@@ -84,53 +66,6 @@ export const Keys: FC = () => {
                                             day: '2-digit',
                                         })}
                                     </div>
-                                </div>
-                                <div className={styles.div11}>
-                                    <div
-                                        className={styles.div12}
-                                        onClick={() =>
-                                            setPage(
-                                                <Extending
-                                                    keyId={id}
-                                                    kind={serverCode === 'white' ? 'premium' : 'base'}
-                                                />,
-                                            )
-                                        }
-                                    >
-                                        <div className={styles.div13}>{t('extend_key')}</div>
-                                    </div>
-                                    {status === 'active' && serverCode !== 'white' && (
-                                        <div
-                                            className={styles.div12}
-                                            onClick={() => setPage(<ChangeServer keyId={id} />)}
-                                        >
-                                            <div className={styles.div13}>{t('change_server')}</div>
-                                        </div>
-                                    )}
-                                    <div
-                                        className={styles.div12}
-                                        onClick={() => {
-                                            navigator.clipboard.writeText(key);
-                                            postMessageToBroadCastChannel({
-                                                event: EventsEnum.SHOW_TEXT,
-                                                data: 'copied',
-                                            });
-                                        }}
-                                    >
-                                        <div className={styles.div13}>{t('copy_key')}</div>
-                                    </div>
-                                    <div className={styles.div12} onClick={() => onChangeAutoRenew(id)}>
-                                        <div
-                                            className={`${styles.div13} ${autoRenewEnabled ? styles.div14 : styles.div15}`}
-                                        >
-                                            {t(autoRenewEnabled ? 'disable_auto_renew' : 'enable_auto_renew')}
-                                        </div>
-                                    </div>
-                                    {status === 'expired' && (
-                                        <div className={styles.div12} onClick={() => onDelete(id)}>
-                                            <div className={`${styles.div13} ${styles.div14}`}>{t('delete_key')}</div>
-                                        </div>
-                                    )}
                                 </div>
                             </div>
                         </Card>

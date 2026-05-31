@@ -1,0 +1,7 @@
+.background{
+    display: grid;
+
+    .div1{
+        display: grid;
+    }
+}

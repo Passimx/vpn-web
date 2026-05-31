@@ -16,11 +16,11 @@ export const Header: FC = () => {
     const shortId = useShortText(user.id);
 
     const onClickLang = () => {
-        setStateApp({ foreground: <Languages /> });
+        if (!user?.id) setStateApp({ foreground: <Languages /> });
     };
 
     const onClickProfile = () => {
-        setPage(<Profile />);
+        if (user?.id) setPage(<Profile />);
     };
 
     return (

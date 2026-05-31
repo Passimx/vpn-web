@@ -13,3 +13,7 @@ export type UserResponse = {
     balanceAccount: BalanceAccountType;
     keys: UserKeyType[];
 };
+
+export type CreateAccountRequest = {
+    languageCode: string;
+};

@@ -18,6 +18,7 @@ const Input: FC<Partial<PropsType>> = ({ placeholder, id, type, value = '' }) =>
                 className={`${styles.button} text_translate`}
                 placeholder={placeholder}
                 value={ownValue}
+                autoComplete="off"
                 type={type}
                 onChange={(e) => {
                     const value = e.target.value;

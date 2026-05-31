@@ -127,9 +127,11 @@ export const Wallet: FC = () => {
                     </div>
                 </div>
             </Card>
-            <Card onClick={onMoneyPage}>
-                <div className={styles.div20}>{t('t12')}</div>
-            </Card>
+            <div className={styles.div21}>
+                <Card onClick={onMoneyPage}>
+                    <div className={styles.div20}>{t('t12')}</div>
+                </Card>
+            </div>
         </div>
     );
 };

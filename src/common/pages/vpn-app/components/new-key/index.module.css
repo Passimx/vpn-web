@@ -4,6 +4,10 @@
     .div0 {
         cursor: pointer;
 
+        &:hover {
+            opacity: 0.8;
+        }
+
         .div1 {
             display: grid;
             grid-template-columns: auto  1fr auto;

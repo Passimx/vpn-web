@@ -17,10 +17,15 @@
             padding: 8px;
             gap: 4px;
             display: grid;
-            grid-template-columns: auto auto;
+            grid-template-columns: 20px auto;
             align-items: center;
             cursor: pointer;
             border-radius: 16px;
+
+            .background32{
+                height: 20px;
+                width: 20px;
+            }
         }
 
         .background31:hover{

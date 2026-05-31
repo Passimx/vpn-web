@@ -66,12 +66,19 @@
         }
     }
 
-    .div20{
-        font-weight: 700;
-        font-size: 16px;
+    .div21{
         cursor: pointer;
-        display: grid;
-        justify-items: center;
-        align-items: center;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        .div20{
+            font-weight: 700;
+            font-size: 16px;
+            display: grid;
+            justify-items: center;
+            align-items: center;
+        }
     }
 }

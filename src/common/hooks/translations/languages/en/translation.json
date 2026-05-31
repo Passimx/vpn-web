@@ -5,6 +5,7 @@
   "copied": "Copied",
   "back": "Back",
   "login_to_PassimX": "PassimX Login",
+  "passimx_account": "Log in via PassimX",
   "login_by_telegram": "Log in via Telegram",
   "login_by_passimx": "Log in to PassimX account",
   "create_by_passimx": "Create a new account",
@@ -78,5 +79,7 @@
   "t21": "🚚 Base tariff",
   "t22": "🛡️ Premium tariff",
   "t23": "A reliable workhorse: stable access without traffic limits. Great for everyday use.",
-  "t24": "It works:\n - Under the most severe blockings\n - At factories\n - During allowlists/whitelists\n\n It has a traffic limit — so it’s recommended to buy it together with the regular VPN tariff."
+  "t24": "Works during:\n - The most severe blocking\n - At factories\n - During whitelist modes\n - In parking lots\n\nIt has a data limit—therefore, it is recommended to purchase a standard plan alongside it.",
+  "t25": "Enter the invitation link",
+  "t26": "An account is created without entering a login and password.\n\nTo avoid losing access, save the key file after creating your account."
 }

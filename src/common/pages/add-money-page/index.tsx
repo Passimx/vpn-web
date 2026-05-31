@@ -80,58 +80,68 @@ export const AddMoneyPage: FC = () => {
                 </div>
             </Card>
             <div className={styles.div30}>
-                <Card onClick={onWechat}>
-                    <div className={styles.div1}>
-                        <div className={styles.div2}>
-                            <Image src={wechat} className={styles.div3} />
-                        </div>
-                        <div className={styles.div6}>
-                            <div className={styles.div7}>WeChat</div>
-                            <div className={styles.div8}>
-                                {formatNumber(convert(amount, t('t11'), 'cny', currencyPrice), '¥')}
+                <div className={styles.div31}>
+                    <Card onClick={onWechat}>
+                        <div className={styles.div1}>
+                            <div className={styles.div2}>
+                                <Image src={wechat} className={styles.div3} />
+                            </div>
+                            <div className={styles.div6}>
+                                <div className={styles.div7}>WeChat</div>
+                                <div className={styles.div8}>
+                                    {formatNumber(convert(amount, t('t11'), 'cny', currencyPrice), '¥')}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </Card>
-                <Card onClick={onSber}>
-                    <div className={styles.div1}>
-                        <div className={styles.div2}>
-                            <Image src={sber} className={styles.div3} />
-                        </div>
-                        <div className={styles.div6}>
-                            <div className={styles.div7}>{t('t16')}</div>
-                            <div className={styles.div8}>
-                                {formatNumber(convert(amount, t('t11'), 'rub', currencyPrice), '₽')}
+                    </Card>
+                </div>
+                <div className={styles.div31}>
+                    <Card onClick={onSber}>
+                        <div className={styles.div1}>
+                            <div className={styles.div2}>
+                                <Image src={sber} className={styles.div3} />
+                            </div>
+                            <div className={styles.div6}>
+                                <div className={styles.div7}>{t('t16')}</div>
+                                <div className={styles.div8}>
+                                    {formatNumber(convert(amount, t('t11'), 'rub', currencyPrice), '₽')}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </Card>
-                <Card>
-                    <div className={styles.div1_1}>
-                        <div className={styles.div4} style={{ backgroundColor: 'var(--color-5)' }}>
-                            <Image src={ton} className={styles.div5} />
-                        </div>
-                        <div className={styles.div6}>
-                            <div className={styles.div7}>TON</div>
-                            <div className={styles.div8}>
-                                {formatNumber(convert(amount, t('t11'), 'the-open-network', currencyPrice), 'TON')}
+                    </Card>
+                </div>
+                <div className={styles.div31}>
+                    <Card>
+                        <div className={styles.div1_1}>
+                            <div className={styles.div4} style={{ backgroundColor: 'var(--color-5)' }}>
+                                <Image src={ton} className={styles.div5} />
+                            </div>
+                            <div className={styles.div6}>
+                                <div className={styles.div7}>TON</div>
+                                <div className={styles.div8}>
+                                    {formatNumber(convert(amount, t('t11'), 'the-open-network', currencyPrice), 'TON')}
+                                </div>
+                            </div>
+                            <div className={styles.div1_2}>
+                                <Image
+                                    src={tonkeeper}
+                                    className={styles.div3}
+                                    onClick={() => onTon(AppWalletEnum.TON_KEEPER)}
+                                />
+                                <Image
+                                    src={mytonwallet}
+                                    className={styles.div3}
+                                    onClick={() => onTon(AppWalletEnum.MY_TON_WALLET)}
+                                />
+                                <Image
+                                    src={tonhub}
+                                    className={styles.div3}
+                                    onClick={() => onTon(AppWalletEnum.TON_HUB)}
+                                />
                             </div>
                         </div>
-                        <div className={styles.div1_2}>
-                            <Image
-                                src={tonkeeper}
-                                className={styles.div3}
-                                onClick={() => onTon(AppWalletEnum.TON_KEEPER)}
-                            />
-                            <Image
-                                src={mytonwallet}
-                                className={styles.div3}
-                                onClick={() => onTon(AppWalletEnum.MY_TON_WALLET)}
-                            />
-                            <Image src={tonhub} className={styles.div3} onClick={() => onTon(AppWalletEnum.TON_HUB)} />
-                        </div>
-                    </div>
-                </Card>
+                    </Card>
+                </div>
             </div>
         </div>
     );

@@ -15,6 +15,10 @@
     .div1{
         cursor: pointer;
 
+        &:hover {
+            opacity: 0.8;
+        }
+
         .div2{
             display: grid;
             grid-template-columns: auto 1fr;
