@@ -13,7 +13,7 @@ export type BalanceAccountType = {
     rub: number;
     cny: number;
     ton: number;
-    tonUsdt: number;
+    usd: number;
 };
 
 export type UserStateType = {

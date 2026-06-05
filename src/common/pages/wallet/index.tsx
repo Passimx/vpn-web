@@ -109,7 +109,7 @@ export const Wallet: FC = () => {
                             <div className={styles.div5}>
                                 <div className={styles.div6}>USDT (TON)</div>
                                 <div className={`${styles.div6} ${styles.div8}`}>
-                                    {formatNumber(balanceAccount.tonUsdt)}
+                                    {formatNumber(balanceAccount.usd)}
                                 </div>
                             </div>
                             <div className={styles.div5}>
@@ -118,7 +118,7 @@ export const Wallet: FC = () => {
                                 </div>
                                 <div className={`${styles.div7} ${styles.div8}`}>
                                     {formatNumber(
-                                        convert(balanceAccount.tonUsdt, 'usd', t('t11'), currencyPrice),
+                                        convert(balanceAccount.usd, 'usd', t('t11'), currencyPrice),
                                         t('t10'),
                                     )}
                                 </div>
