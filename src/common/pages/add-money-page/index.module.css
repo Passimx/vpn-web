@@ -10,7 +10,7 @@
         .div31{
             cursor: pointer;
 
-            &:hover {
+            &:active {
                 opacity: 0.8;
             }
 

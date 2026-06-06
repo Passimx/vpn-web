@@ -29,7 +29,7 @@ export const Keys: FC = () => {
                     </Card>
                 </div>
 
-                {keys?.map(({ id, serverCode, status, expiresAt, createdAt }) => (
+                {keys?.map(({ id, serverCode, status, expiresAt }) => (
                     <div key={id} className={styles.div91} onClick={() => setPage(<Key keyId={id} />)}>
                         <Card>
                             <div className={styles.div5}>
@@ -51,16 +51,6 @@ export const Keys: FC = () => {
                                     <div>{t('active_until')}:</div>
                                     <div>
                                         {new Date(expiresAt).toLocaleDateString('ru-RU', {
-                                            year: 'numeric',
-                                            month: '2-digit',
-                                            day: '2-digit',
-                                        })}
-                                    </div>
-                                </div>
-                                <div className={styles.div6}>
-                                    <div>{t('created_at')}:</div>
-                                    <div>
-                                        {new Date(createdAt).toLocaleDateString('ru-RU', {
                                             year: 'numeric',
                                             month: '2-digit',
                                             day: '2-digit',

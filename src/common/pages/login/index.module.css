@@ -28,7 +28,7 @@
             }
         }
 
-        .background31:hover{
+        .background31:active{
             opacity: 0.8;
         }
     }

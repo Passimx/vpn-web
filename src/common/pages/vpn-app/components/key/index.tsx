@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { Extending } from '../extending';
 import { ChangeServer } from '../change-server';
 import { useSetPage } from '../../../../hooks/use-set-page.hook.ts';
+import { UserKeyType } from '../../../../store/user/types/state.type.ts';
 
 export const Key: FC<PropsType> = ({ keyId }) => {
     const { t } = useTranslation();
@@ -31,6 +32,10 @@ export const Key: FC<PropsType> = ({ keyId }) => {
         else postMessageToBroadCastChannel({ event: EventsEnum.SHOW_TEXT, data: result.data });
     };
 
+    const formatTrafficLimit = (key: UserKeyType): string => {
+        return `${((key.countTrafficLimit - key.countTrafficUsed) / 1024 / 1024 / 1024).toFixed(2).replace('.', ',')} GB`;
+    };
+
     if (key)
         return (
             <div className={styles.div1}>
@@ -51,6 +56,10 @@ export const Key: FC<PropsType> = ({ keyId }) => {
                             <div className={key.status === 'active' ? styles.div7 : styles.div8}>{t(key.status)}</div>
                         </div>
                         <div className={styles.div6}>
+                            <div>{t('t30')}:</div>
+                            <div>{formatTrafficLimit(key)}</div>
+                        </div>
+                        <div className={styles.div6}>
                             <div>{t('active_until')}:</div>
                             <div>
                                 {new Date(key.expiresAt).toLocaleDateString('ru-RU', {
@@ -62,13 +71,6 @@ export const Key: FC<PropsType> = ({ keyId }) => {
                         </div>
                         <div className={styles.div6}>
                             <div>{t('created_at')}:</div>
-                            <div>
-                                {new Date(key.createdAt).toLocaleDateString('ru-RU', {
-                                    year: 'numeric',
-                                    month: '2-digit',
-                                    day: '2-digit',
-                                })}
-                            </div>
                         </div>
                         <div className={styles.div11}>
                             <div

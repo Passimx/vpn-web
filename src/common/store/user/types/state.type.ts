@@ -7,6 +7,8 @@ export type UserKeyType = {
     serverCode: string;
     serverId: string;
     autoRenewEnabled: boolean;
+    countTrafficLimit: number;
+    countTrafficUsed: number;
 };
 
 export type BalanceAccountType = {

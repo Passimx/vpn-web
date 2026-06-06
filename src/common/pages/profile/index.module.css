@@ -4,7 +4,7 @@
     .div1{
         cursor: pointer;
 
-        &:hover {
+        &:active {
             opacity: 0.8;
         }
 

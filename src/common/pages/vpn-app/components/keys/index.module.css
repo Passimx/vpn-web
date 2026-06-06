@@ -7,7 +7,7 @@
         .div1o{
             cursor: pointer;
 
-            &:hover {
+            &:active {
                 opacity: 0.8;
             }
 
@@ -50,7 +50,7 @@
         .div91{
             cursor: pointer;
 
-            &:hover {
+            &:active {
                 opacity: 0.8;
             }
         }

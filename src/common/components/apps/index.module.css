@@ -8,6 +8,10 @@
         justify-items: center;
         cursor: pointer;
 
+        &:active {
+            opacity: 0.8;
+        }
+
         .div11{
             background: linear-gradient(
                     -45deg,
